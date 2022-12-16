@@ -1,3 +1,11 @@
+# load packages
+library(DiagrammeR)
+library(DiagrammeRsvg) # for exporting the image to pdf
+library(rsvg) # for exporting the image to pdf
+
+# load function
+source('draw_a_dag.r')
+
 # define nodes
 nodes<-list(
   c(
@@ -5,11 +13,11 @@ nodes<-list(
     sex='Sex'
   ),
   c(
-    x='Smoking',
-    y='Cancer'  
+    x='Exposure',
+    y='Outcome'  
   ),
   c(
-    patio='Patio'
+    selection='Selection'
   )
 )
 
@@ -20,14 +28,19 @@ arrows<-list(
   c('age','y'),
   c('sex','x'),
   c('sex','y'),
-  c('x','patio','red')
+  c('x','selection','red'),
+  c('y','selection','red')
 )
 
 # define colors
 node_colors<-list(
   powderblue=c('x','y'),
-  pink='patio'
+  pink='selection'
 )
 
 # draw the dag
 draw_a_dag(nodes,arrows,node_colors)
+
+# output the dag to pdf
+rsvg_pdf(charToRaw(export_svg(draw_a_dag(nodes,arrows,node_colors))),
+         'example.pdf')

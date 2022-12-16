@@ -17,11 +17,11 @@ nodes<-list(
     sex='Sex'
   ),
   c(
-    x='Smoking',
-    y='Cancer'  
+    x='Exposure',
+    y='Outcome'  
   ),
   c(
-    patio='Patio'
+    selection='Selection'
   )
 )
 ```
@@ -37,7 +37,8 @@ arrows<-list(
   c('age','y'),
   c('sex','x'),
   c('sex','y'),
-  c('x','patio','red')
+  c('x','selection','red'),
+  c('y','selection','red')
 )
 ```
 
@@ -48,7 +49,7 @@ Define node colors as a list, with named elements. The list should contain one o
 ```r
 node_colors<-list(
   powderblue=c('x','y'),
-  pink='patio'
+  pink='selection'
 )
 ```
 
