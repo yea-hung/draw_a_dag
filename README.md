@@ -1,6 +1,6 @@
 # Description
 
-R code for drawing a DAG (directed acyclic graph).
+R code for drawing a DAG (directed acyclic graph), using definition of R objects.
 
 # Dependencies
 
