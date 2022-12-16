@@ -10,7 +10,7 @@ R code for drawing a DAG (directed acyclic graph).
 
 Define the nodes, as a list. The list should contain one or more character vector, with named elements. Each character vector defines a row in the desired DAG. For example:
 
-```
+```r
 nodes<-list(
   c(
     age='Age',
@@ -30,7 +30,7 @@ Here, there are 3 character vectors, indicating we want 3 rows. The first charac
 
 Define the arrows as a list. The list should contain one or more character vector. Each character vector defines an arrow. For example:
 
-```
+```r
 arrows<-list(
   c('x','y','blue'),
   c('age','x'),
@@ -45,7 +45,7 @@ The first character vector defines an arrow that begins from `x` and ends with `
 
 Define node colors as a list, with named elements. The list should contain one or more character vector. For example:
 
-```
+```r
 node_colors<-list(
   powderblue=c('x','y'),
   pink='patio'
@@ -56,12 +56,12 @@ The first element indicates that we want `x` and `y` to be `powderblue`.
 
 To draw the DAG:
 
-```
+```r
 draw_a_dag(nodes,arrows,node_colors)
 ```
 
 Unfortunately, the underlying function does not work with cair_pdf(). To export to PDF, use the *DiagrammeRsvg* and *rsvg* packages:
 
-```
+```r
 rsvg_pdf(charToRaw(export_svg(draw_a_dag(nodes,arrows,node_colors))),'example.pdf')
 ```
