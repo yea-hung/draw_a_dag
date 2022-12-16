@@ -59,3 +59,9 @@ To draw the DAG:
 ```
 draw_a_dag(nodes,arrows,node_colors)
 ```
+
+Unfortunately, the underlying function does not work with cair_pdf(). To export to PDF, use the *DiagrammeRsvg* and *rsvg* packages:
+
+```
+rsvg_pdf(charToRaw(export_svg(draw_a_dag(nodes,arrows,node_colors))),'dag.pdf')
+```
