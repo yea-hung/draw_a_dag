@@ -13,8 +13,8 @@ nodes<-list(
   )
 )
 
-# define edges
-edges<-list(
+# define arrows
+arrows<-list(
   c('x','y','blue'),
   c('age','x'),
   c('age','y'),
@@ -30,4 +30,4 @@ node_colors<-list(
 )
 
 # draw the dag
-draw_a_dag(nodes,edges,node_colors)
+draw_a_dag(nodes,arrows,node_colors)
