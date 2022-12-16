@@ -63,7 +63,7 @@ draw_a_dag(nodes,arrows,node_colors)
 
 The resulting image is:
 
-![0.5](example.png)
+![](example.png =600x)
 
 Unfortunately, the underlying function does not work with cairo_pdf(). To export to PDF, use the *DiagrammeRsvg* and *rsvg* packages:
 
