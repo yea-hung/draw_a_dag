@@ -65,7 +65,7 @@ The resulting image is:
 
 <img src='example.png' width='450'>
 
-Unfortunately, the underlying function does not work with cairo_pdf(). To export to PDF, use the *DiagrammeRsvg* and *rsvg* packages:
+Unfortunately, the underlying function does not work with `cairo_pdf()`. To export to PDF, use the *DiagrammeRsvg* and *rsvg* packages:
 
 ```r
 rsvg_pdf(charToRaw(export_svg(draw_a_dag(nodes,arrows,node_colors))),'example.pdf')
