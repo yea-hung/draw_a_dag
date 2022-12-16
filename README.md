@@ -1,6 +1,6 @@
 # Description
 
-R code for drawing a DAG (directed acyclic graph), using definition of R objects.
+R function for drawing a DAG (directed acyclic graph). Though other functions or packages exist for doing this in R, they require specification of the DAG using knowing [dot](https://graphviz.org/) (Graphviz) or [Mermaid](https://github.com/mermaid-js/mermaid). In comparison, this function requires specification of the DAG using R objects.
 
 # Dependencies
 
