@@ -1,5 +1,5 @@
 # define function
-draw_a_dag<-function(nodes,edges,node_colors,hsep=NULL){
+draw_a_dag<-function(nodes,arrows,node_colors,hsep=NULL){
   if(is.null(hsep)){ hsep<-0.5 }
   top<-c(
     'digraph G {',
@@ -14,10 +14,10 @@ draw_a_dag<-function(nodes,edges,node_colors,hsep=NULL){
     })
     paste(c('{ rank=same;',code,'}'),collapse=' ')
   })
-  edges<-sapply(1:length(edges),function(ee){
-    code<-paste(edges[[ee]][1],' -> ',edges[[ee]][2],sep='')
-    if(length(edges[[ee]])==3){
-      code<-paste(code,' [color=',edges[[ee]][3],']',sep='')
+  arrows<-sapply(1:length(arrows),function(ee){
+    code<-paste(arrows[[ee]][1],' -> ',arrows[[ee]][2],sep='')
+    if(length(arrows[[ee]])==3){
+      code<-paste(code,' [color=',arrows[[ee]][3],']',sep='')
     }
     paste(code,';',sep='')
   })
@@ -28,6 +28,6 @@ draw_a_dag<-function(nodes,edges,node_colors,hsep=NULL){
     })
   }))
   bottom<-c('}')
-  code<-paste(c(top,nodes,edges,node_colors,bottom),collapse='\n')
+  code<-paste(c(top,nodes,arrows,node_colors,bottom),collapse='\n')
   DiagrammeR(code,type='grViz')
 }
